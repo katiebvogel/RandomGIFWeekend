@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>RandomGIF Generator</title>
+  <link rel = "stylesheet" type = "text/css" href = "stylesheet.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src = "app.js"></script>
+  </head>
+
+  <body>
+    <header>Katie's Weekend #2: Random GIF Generator</header>
+    <div class = "wrapper">
+      <main>
+
+        <section id="cat">
+        <button class="getCatGIF">Get Random Cat Sticker!</button>
+          <div class = "gifCatSpace">
+
+          </div>
+        </section>
+        <section id="other">
+        <button class = "getOtherGIF">Get Random GIF</button>
+          <div class = "otherSpace">
+
+          </div>
+        </section>
+
+        <section id="search">
+
+          <form action="action_page.php" method="get" id="searchByTag">
+            <label for="tag">Click to see a random GIF. Enter key word(s): </label>
+            <input type="text" name="tag" id="tag" value=''/>
+            <br  />
+            <input type="submit" value="Submit">
+            </form>
+          <div class="searchSpace">
+
+          </div>
+
+        </section>
+<!--
+        <section id="searchFive">
+
+          <form action="action_page.php" method="get" id="nextFive">
+            <label for="tag">Type of GIF: </label>
+            <input type="text" name="tag" id="tag2" value=''/>
+            <br  />
+            <input type="submit" value="Submit">
+            </form>
+          <div class="fiveSpace">
+
+          </div>
+
+        </section> -->
+        </main>
+    </div>
+  </body>
+</html>
