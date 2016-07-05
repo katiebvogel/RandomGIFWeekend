@@ -74,7 +74,7 @@ $( "#searchByTag" ).submit(function( event ) {
 //         number++
 //       }
 //     })
-
-
-  })
+  //
+  //
+  // })
 });
