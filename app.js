@@ -1,3 +1,5 @@
+var clickCount = 0;
+var displayAmount = 5;
 $(document).ready(function(){
 
 //This will get a RANDOM cat sticker
@@ -46,35 +48,38 @@ $( "#searchByTag" ).submit(function( event ) {
   })
 });
 
-//Similar to the search above, but following the directions for Pro Mode in the README.  This will employ a submit key word and display 5 GIFS at a time.  Every time the user presses the next button, the next 5 GIFS will display.
+//Similar to the search above, but following the directions for Pro Mode in the README.  This will employ a submit key word and display 5 GIFS at a time.  Every time the user presses the submit button, the first five sill clear and another click on the same button will display the next 5 GIFS will display.
+var j=0;
+$( "#nextFive" ).submit(function( event ) {
+  event.preventDefault();
 
-// $( "#nextFive" ).submit(function( event ) {
-//   event.preventDefault();
-//
-//   $('.fiveSpace').empty();
-//
-//   var mySearch2 = $('#tag2').val();
-//   console.log(mySearch2);
-//
-//   $.get('http://api.giphy.com/v1/gifs/search?q='+ mySearch2 +'&api_key=dc6zaTOxFJmzC')
-//       .then(function(data){
-//     var number = 0;
-//     var space = 0;
-//     var j=0;
-//     for(j=0; j<= data.data.length; j++){
-//       console.log(number);
-//       if(number % 5 ==0 || number == 0){
-//         $('.fiveSpace').append('<img src=\"'+ data.data[j].images.fixed_width.url +'\"></img>');
-//         space = '#gif'+ number;
-//       }else{
-//         console.log(space);
-//         $alert('click again!');
-//         // $('.fiveSpace').append('<img src=\"'+ data.data[j].images.fixed_width.url +'\"></img>');
-//       }
-//         number++
-//       }
-//     })
-  //
-  //
-  // })
+  clickCount+= parseInt($(this).find('#1').attr('id'));
+  $('.fiveSpace').empty();
+  console.log(clickCount);
+
+  var mySearch2 = $('#tag2').val();
+  console.log(mySearch2);
+
+  $.get('http://api.giphy.com/v1/gifs/search?q='+ mySearch2 +'&api_key=dc6zaTOxFJmzC')
+      .then(function(data){
+
+
+      if(clickCount == 1){
+        for(; j< displayAmount; j++){
+
+        $('.fiveSpace').append('<img src=\"'+ data.data[j].images.fixed_width.url +'\"></img>');
+
+      }
+    }
+      if(clickCount ==2) {
+        $('.fiveSpace').empty();
+        clickCount = 0;
+      }
+
+    })
+
+    })
+
+
+
 });
